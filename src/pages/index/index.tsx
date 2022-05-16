@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { AtGrid, AtCard } from "taro-ui"
 import SwiperImg from '../../components/swiper-img'
+import ArticleCard from '../../components/article-card'
 import './index.less'
 
 export default class Index extends Component {
@@ -55,15 +56,9 @@ export default class Index extends Component {
         {
           gridList.map((item,index) => {
             return (
-              <AtCard
-              key={index}
-                note='小Tips'
-                extra='额外信息'
-                title='这是个标题'
-                thumb={item.image}
-              >
-                这也是内容区 可以随意定义功能
-              </AtCard>
+              <view style={{marginTop:'10rpx'}}>
+                <ArticleCard />
+              </view>
             )
           })
         }
