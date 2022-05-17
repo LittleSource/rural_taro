@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "rural_raro",
 	"description": "",
-	"appid": "touristappid",
+	"appid": "wx2ec21b559f1122b0",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
