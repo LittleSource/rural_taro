@@ -28,6 +28,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: install taro cli
         run: npm install -g @tarojs/cli
+        
+      - name: npm install
+        run: npm install
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
