@@ -1,24 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { View } from '@tarojs/components';
 import { AtList, AtListItem } from "taro-ui"
+import request from '../../api/request'
 const Index = () => {
-
+  const [list, setList] = useState([])
   useEffect(() => {
-    // 12
+    request.getOrganize().then(data => {
+      console.log(data)
+      setList(data)
+    })
   }, []);
 
   return (
     <View >
       <AtList>
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
-        <AtListItem title='标题文字' note='描述信息' arrow='right' />
+        {
+          list.map(item => {
+            return (
+              <AtListItem title={item.title} note={item.remarks} arrow='right' />
+            )
+          })
+        }
       </AtList>
     </View>
   );
