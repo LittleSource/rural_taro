@@ -4,6 +4,7 @@ export default {
     'pages/organize/index',
     'pages/mine/index',
     'pages/institution/index',
+'pages/article/index',
 ],
   window: {
     backgroundTextStyle: 'light',
@@ -19,23 +20,23 @@ export default {
     list:[{
       pagePath:'pages/index/index',
       text:'首页',
-      iconPath:'./static/images/home-smile-2-line.png',
-      selectedIconPath:'./static/images/home-smile-2-fill.png'
+      iconPath:'./assets/images/home-smile-2-line.png',
+      selectedIconPath:'./assets/images/home-smile-2-fill.png'
     },{
       pagePath:'pages/organize/index',
       text:'组织',
-      iconPath:'./static/images/community-line.png',
-      selectedIconPath:'./static/images/community-fill.png'
+      iconPath:'./assets/images/community-line.png',
+      selectedIconPath:'./assets/images/community-fill.png'
     },{
       pagePath:'pages/institution/index',
       text:'制度',
-      iconPath:'./static/images/stack-line.png',
-      selectedIconPath:'./static/images/stack-fill.png'
+      iconPath:'./assets/images/stack-line.png',
+      selectedIconPath:'./assets/images/stack-fill.png'
     },{
       pagePath:'pages/mine/index',
       text:'我的',
-      iconPath:'./static/images/user-5-line.png',
-      selectedIconPath:'./static/images/user-5-fill.png'
+      iconPath:'./assets/images/user-5-line.png',
+      selectedIconPath:'./assets/images/user-5-fill.png'
     }]
   }
 }

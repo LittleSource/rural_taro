@@ -1,0 +1,56 @@
+.html-content{
+    padding: 20rpx;
+    font-size: 30rpx;
+    padding-bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
+
+.bottom-box{
+    position: fixed;
+    height: 50rpx;
+    width: 100%rpx;
+    bottom: 0;
+    bottom: constant(safe-area-inset-bottom);
+    bottom: env(safe-area-inset-bottom);///兼容 IOS>11.2/
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx;
+    border-top: 1px solid #eee;
+    .left-box{
+        border: #999 solid 1rpx;
+        width: 350rpx;
+        height: 65rpx;
+        padding: 0rpx 10rpx;
+        .text{
+            line-height: 65rpx;
+            font-size: 30rpx;
+            color: #666;
+        }
+    }
+    .right-box{
+        margin-left: 60rpx;
+        width: 260rpx;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .iconfont{
+            font-size: 30rpx;
+            color: #666;
+        }
+        .text{
+            font-size: 26rpx;
+            color: #666;
+            margin-left: 10rpx;
+        }
+    }
+}
+
+.safe-bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: env(safe-area-inset-bottom);
+    background-color: #fcfcfc;
+}

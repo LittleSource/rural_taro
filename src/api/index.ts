@@ -4,15 +4,8 @@ import Taro from '@tarojs/taro'
 let BaseUrl = 'http://192.168.0.128:8980'
 let ApiUrl = BaseUrl + '/js/f/'
 let imgUrl = 'http://192.168.1.8:8084'
-// 正式
-// let ApiUrl = ''
-// let imgUrl = ''
 
-/**
- * 封装请求request
- */
-
-function requestJson(url, data) {
+function requestJson(url: string, data: object) {
     Taro.showLoading({
         title: '加载中',
         mask: true

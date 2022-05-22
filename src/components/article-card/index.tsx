@@ -2,9 +2,15 @@ import React from 'react'
 import { View, Image } from '@tarojs/components'
 import './index.less'
 import "taro-ui/dist/style/components/flex.scss";
+import Taro from '@tarojs/taro';
 export default function ArticleCard() {
+  const navPage = () => {
+    Taro.navigateTo({
+      url: '/pages/article/index'
+    })
+  }
   return (
-    <View className='card-box'>
+    <View className='card-box' onClick={navPage}>
       <view className='at-row'>
         <view className='content'>
           <view className='content-text'>
