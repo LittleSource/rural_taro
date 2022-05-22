@@ -5,6 +5,7 @@ export default {
     'pages/mine/index',
     'pages/institution/index',
 'pages/article/index',
+'pages/topic/index',
 ],
   window: {
     backgroundTextStyle: 'light',

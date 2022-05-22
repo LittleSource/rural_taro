@@ -10,5 +10,9 @@ const apiMember = {
   getOrganize: (param = {categoryCode:'A1023'}) => api.requestJson(ApiUrl +'cmsApi/title',param),
   // 获取制度
   getInstitution: (param = {categoryCode:'A1024'}) => api.requestJson(ApiUrl +'cmsApi/title', param),
+  // 获取文章列表
+  getArticleList: (param) => api.requestJson(ApiUrl +'cmsApi/title', param),
+  // 获取文章详情
+  getArticleDetail: (param) => api.requestJson(ApiUrl +'cmsApi/content', param),
 }
 export default apiMember

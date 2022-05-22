@@ -3,10 +3,10 @@ import { View, Image } from '@tarojs/components'
 import './index.less'
 import "taro-ui/dist/style/components/flex.scss";
 import Taro from '@tarojs/taro';
-export default function ArticleCard() {
+export default function ArticleCard(props) {
   const navPage = () => {
     Taro.navigateTo({
-      url: '/pages/article/index'
+      url: '/pages/article/index?id=' + props.data.id
     })
   }
   return (
@@ -14,13 +14,13 @@ export default function ArticleCard() {
       <view className='at-row'>
         <view className='content'>
           <view className='content-text'>
-            一款基于Taro 框架开发的多端UI 组件库. Contribute to NervJS/taro-ui development by creating an account on GitHub.
+            {props.data.title}
           </view>
           <view className='footer'>
-            发布于2020-01-022 13:09:09
+            发布于{props.data.createDate}
           </view>
         </view>
-        <Image className='card-img' src='https://cdn.uviewui.com/uview/swiper/swiper1.png'></Image>
+        <Image className='card-img' src={props.data.image}></Image>
       </view>
     </View>
   )
