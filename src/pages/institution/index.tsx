@@ -1,4 +1,3 @@
-
 import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
 import { View, Text } from '@tarojs/components';
@@ -15,13 +14,19 @@ const Index = () => {
     })
   }, []);
 
+  const NavArticle = (id) => {
+    Taro.navigateTo({
+      url: `/pages/article/index?id=${id}`
+    })
+  }
+
   return (
     <View >
     <AtList>
       {
         list.map(item => {
           return (
-            <AtListItem title={item.title} arrow='right' />
+            <AtListItem title={item.title} arrow='right' onClick={()=>NavArticle(item.id)} />
           )
         })
       }

@@ -1,7 +1,7 @@
 
 import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
-import { View, Text } from '@tarojs/components';
+import { View, Text, Button } from '@tarojs/components';
 import { AtForm, AtInput,AtIcon } from 'taro-ui';
 import './index.less';
 import request from '../../api/request';
@@ -27,6 +27,12 @@ const Index = () => {
     return el;
   }
 
+  const onShare = () => {
+    Taro.showShareMenu({
+      withShareTicket: true
+    })
+  }
+
   return (
     <view>
       <View className='title'>{acticleData.title}</View>
@@ -39,7 +45,9 @@ const Index = () => {
         </View>
         <View className='right-box'>
           <AtIcon value='iconfont icon-zan-l' size='25' color='#666'></AtIcon>
-          <AtIcon value='iconfont icon-zhuanfa' size='25' color='#666'></AtIcon>
+          <Button className='button-none' openType='share'>
+            <AtIcon onClick={onShare} value='iconfont icon-zhuanfa' size='25' color='#666'></AtIcon>
+          </Button>
           <AtIcon value='iconfont icon-star' size='25' color='#666'></AtIcon>
         </View>
       </view>

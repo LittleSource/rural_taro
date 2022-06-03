@@ -6,6 +6,8 @@ export default {
     'pages/institution/index',
 'pages/article/index',
 'pages/topic/index',
+'pages/login/index',
+'pages/about/index',
 ],
   window: {
     backgroundTextStyle: 'light',

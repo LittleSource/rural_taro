@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 
 // 测试
-let BaseUrl = 'http://192.168.0.128:8980'
+let BaseUrl = 'http://119.3.219.157:8980'
 let ApiUrl = BaseUrl + '/js/f/'
 let imgUrl = 'http://192.168.1.8:8084'
 

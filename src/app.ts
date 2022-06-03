@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './app.less'
-import 'taro-ui/dist/style/index.scss'
+import './assets/css/custom-theme.scss'
 class App extends Component {
 
   componentDidMount () {}
