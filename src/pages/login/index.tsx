@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { View } from '@tarojs/components';
 import { AtCard, AtForm, AtInput, AtButton } from 'taro-ui'
 import './index.less';
-
+import request from '../../api/request';
+import { userModel } from '../../models/userInfo';
 const Index = () => {
 
   const [phone, setPhone] = useState('');
@@ -14,11 +15,41 @@ const Index = () => {
     // 12
   }, []);
 
-  const handleChange = (value) => {
-
+  const phoneChange = (value) => {
+    setPhone(value);
   }
-  const onSubmit = (event) => {
-    console.log(event)
+
+  const passwordChange = (value) => {
+    setPassword(value);
+  }
+
+  const onSubmit = () => {
+    request.login({
+      phone,
+      password
+    }).then(res => {
+      console.log(res)
+      if (res.code !=200) {
+        Taro.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        return;
+      }
+      const data = res.data;
+      userModel.login(data.userInfo,data.token);
+      Taro.showToast({
+        title: '登录成功',
+        icon: 'success',
+        duration: 2000
+      })
+      setTimeout(() => {
+        Taro.switchTab({
+          url: '/pages/mine/index'
+        })
+      },1500)
+    })
   }
 
   return (
@@ -26,14 +57,14 @@ const Index = () => {
       <AtCard
         title='用户登录'
       >
-        <AtForm onSubmit={onSubmit}>
+        <AtForm>
           <AtInput
             name='phone'
             title='手机号'
             type='text'
             placeholder='请输入手机号'
             value={phone}
-            onChange={handleChange}
+            onChange={phoneChange}
           />
           <AtInput
             name='password'
@@ -41,10 +72,10 @@ const Index = () => {
             type='password'
             placeholder='请输入密码'
             value={password}
-            onChange={handleChange}
+            onChange={passwordChange}
           />
           <view style={{height:'30rpx'}}></view>
-          <AtButton formType='submit'>登录</AtButton>
+          <AtButton onClick={onSubmit}>登录</AtButton>
         </AtForm>
       </AtCard>
     </View>

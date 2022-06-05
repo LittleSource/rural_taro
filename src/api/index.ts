@@ -5,7 +5,7 @@ let BaseUrl = 'http://119.3.219.157:8980'
 let ApiUrl = BaseUrl + '/js/f/'
 let imgUrl = 'http://192.168.1.8:8084'
 
-function requestJson(url: string, data: object) {
+function callRequest(url: string, data: object,method = "GET") {
     Taro.showLoading({
         title: '加载中',
         mask: true
@@ -13,7 +13,7 @@ function requestJson(url: string, data: object) {
     return new Promise(function (resolve, reject) {
         Taro.request({
             url: url,
-            method: "POST",
+            method: method,
             data: data,
             header: {
                 'Content-Type': 'application/json; charset=utf-8',
@@ -45,6 +45,15 @@ function requestJson(url: string, data: object) {
     });
 }
 
+
+function post(url: string, data: object) {
+    return callRequest(url,data,"POST")
+}
+
+function get(url: string, data: object) {
+    return callRequest(url,data,"GET")
+}
+
 function showErrorToast(msg) {
     Taro.showToast({
         title: msg,
@@ -53,7 +62,8 @@ function showErrorToast(msg) {
 }
 
 const api = {
-    requestJson,
+    post,
+    get,
     showErrorToast,
     ApiUrl,
     BaseUrl

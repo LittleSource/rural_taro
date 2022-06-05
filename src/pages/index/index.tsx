@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react'
 import { View } from '@tarojs/components'
-import { AtGrid } from "taro-ui"
+import { AtGrid,AtLoadMore } from "taro-ui"
 import Taro from '@tarojs/taro'
 import SwiperImg from '../../components/swiper-img'
 import ArticleCard from '../../components/article-card'
@@ -47,14 +47,64 @@ const gridList = [
 ]
 
 const Index = () => {
-  useEffect(()=>{
-    
-  },[])
   const swiperList = [
     'https://cdn.uviewui.com/uview/swiper/swiper1.png',
     'https://cdn.uviewui.com/uview/swiper/swiper2.png',
     'https://cdn.uviewui.com/uview/swiper/swiper3.png',
   ]
+
+  const [articleList,setArticleList] = useState([])
+  const [loading,setLoading] = useState("noMore")
+  const [page,setPage] = useState(1)
+
+  useEffect(()=>{
+    setPage(1);
+    request.getIndexArticleList({
+      pageNum: page,
+    }).then(res=>{
+      if (res.code !=200) {
+        Taro.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        return;
+      }
+      setArticleList(res.data.dateList)
+      if (res.data.totalPages == 1) {
+        setLoading("noMore")
+      }else{
+        setLoading("more")
+      }
+      setPage(page+1);
+    })
+  },[])
+
+  Taro.useReachBottom(() => {
+    if (loading == 'loading' || loading == 'noMore') {
+      return;
+    }
+    setLoading('loading');
+    request.getIndexArticleList({
+      pageNum: page,
+    }).then(res=>{
+      if (res.code !=200) {
+        Taro.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        return;
+      }
+      setArticleList(articleList.concat(res.data.dateList))
+      if (res.data.totalPages > page) {
+        setLoading("more")
+      }else{
+        setLoading("noMore")
+      }
+      setPage(page+1);
+    })
+  })
 
   const gridClick = (obj)=>{
     if (obj.categoryId !== undefined){
@@ -75,14 +125,15 @@ const Index = () => {
       <SwiperImg swiperList={swiperList} />
       <AtGrid data={gridList} hasBorder={false} columnNum={4} onClick={gridClick} />
       {
-        gridList.map((item,index) => {
+        articleList.map((item) => {
           return (
             <view style={{marginTop:'10rpx'}}>
-             
+             <ArticleCard data={item}></ArticleCard>
             </view>
           )
         })
       }
+      <AtLoadMore status={loading}/>
     </View>
   )
 }
