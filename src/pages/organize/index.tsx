@@ -7,7 +7,6 @@ const Index = () => {
   const [list, setList] = useState([])
   useEffect(() => {
     request.getOrganize().then(data => {
-      console.log(data)
       setList(data)
     })
   }, []);

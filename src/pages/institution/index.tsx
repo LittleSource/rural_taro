@@ -9,7 +9,6 @@ const Index = () => {
   const [list, setList] = useState([])
   useEffect(() => {
     request.getInstitution().then(data => {
-      console.log(data)
       setList(data)
     })
   }, []);

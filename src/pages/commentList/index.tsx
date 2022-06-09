@@ -3,18 +3,33 @@ import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
 import { View } from '@tarojs/components';
 import { AtList, AtListItem } from "taro-ui"
+import request from '../../api/request'
+import { useModel } from 'foca';
+import { userModel } from '../../models/userInfo';
 import './index.less';
 
 const Index = () => {
-
-  const [commonList, setCommonList] = useState([{},{},{},{},{},{},{},{},{},{},{}])
+  const { token } = useModel(userModel);
+  const [commonList, setCommonList] = useState([])
   useEffect(() => {
-    // 12
+    request.getCommentList({
+      token: token
+    }).then(res => {
+      if (res.code !=200) {
+        Taro.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        return;
+      }
+      setCommonList(res.data)
+    })
   }, []);
 
   const navArticle = (item) => {
     Taro.navigateTo({
-      url: '/pages/article/index?id=' + item.id
+      url: '/pages/article/index?id=' + item.articleId
     })
   }
 
@@ -26,9 +41,9 @@ const Index = () => {
             return (
               <AtListItem
                 arrow='right'
-                note='描述信息'
-                title='标题文字标题文字标题文字标题文字标题文字'
-                extraText='详细信息详细信息详细信息详细信息'
+                note={item.createDate}
+                title={item.articleTitle}
+                extraText={item.content}
                 onClick={()=>navArticle(item)}
               />
             )

@@ -1,7 +1,5 @@
-
-import Taro from '@tarojs/taro';
 import React, { useEffect, useState } from 'react';
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import { useModel } from 'foca';
 import { userModel } from '../../models/userInfo';
 import ArticleCard from '../../components/article-card'

@@ -28,5 +28,9 @@ const apiMember = {
   getLikeList: (param) => api.get(ApiUrl +'cmsApi/likeList', param),
   // 获取我的收藏列表
   getCollectList: (param) => api.get(ApiUrl +'cmsApi/collectList', param),
+  // 获取我的评论列表
+  getCommentList: (param) => api.get(ApiUrl +'cmsApi/commentList', param),
+  // 获取房屋信息
+  getHouseInfo: (param) => api.get(ApiUrl +'cmsApi/houseInfo', param),
 }
 export default apiMember

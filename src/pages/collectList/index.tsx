@@ -13,7 +13,6 @@ const Index = () => {
     request.getCollectList({
       token: token
     }).then(data => {
-      console.log(data)
       setArticleList(data.dataList)
     })
   }, []);

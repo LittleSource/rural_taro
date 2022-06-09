@@ -21,7 +21,6 @@ const Index = () => {
   useEffect(() => {
     const categoryId = Taro.getCurrentInstance().router.params.category_id
     request.getCategory({}).then(data => {
-      console.log(data)
       const categoryList = data.categoryApiList
       for (let index = 0; index < categoryList.length; index++) {
         if (categoryList[index].id == categoryId) {
@@ -40,7 +39,6 @@ const Index = () => {
     request.getArticleList({
       categoryCode:categoryId
     }).then(data=>{
-      console.log(data)
       for (let index = 0; index < data.length; index++) {
         data[index].image = request.BaseUrl + data[index].image
       }

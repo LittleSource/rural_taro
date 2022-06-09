@@ -20,8 +20,6 @@ function callRequest(url: string, data: object,method = "GET") {
             },
             success: function (res) {
                 Taro.hideLoading();
-                console.log('请求成功，url:', url);
-                console.log('请求参数，data:', data);
                 if (res.statusCode === 200) {
                     if (res.data.code === 1090) {
                         Taro.navigateTo({
