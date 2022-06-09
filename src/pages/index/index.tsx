@@ -48,9 +48,8 @@ const gridList = [
 
 const Index = () => {
   const swiperList = [
-    'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-    'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-    'https://cdn.uviewui.com/uview/swiper/swiper3.png',
+    'https://cdn.52ym.vip/rural/banner/1.jpeg',
+    'https://cdn.52ym.vip/rural/banner/2.jpeg',
   ]
 
   const [articleList,setArticleList] = useState([])

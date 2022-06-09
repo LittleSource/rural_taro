@@ -2,6 +2,7 @@ import { Middleware, store } from 'foca';
 import { taroStorage } from 'foca-taro-storage';
 
 import { userModel } from './models/userInfo';
+import { browHistoryModel } from './models/browHistory';
 
 const middleware: Middleware[] = [];
 
@@ -13,7 +14,7 @@ store.init({
       version: '1',
       key: `foca-taro-demo-1`,
       engine: taroStorage,
-      models: [userModel],
+      models: [userModel,browHistoryModel],
     },
   ],
 });

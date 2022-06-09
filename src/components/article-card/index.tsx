@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Image } from '@tarojs/components'
+import { browHistoryModel } from '../../models/browHistory';
 import './index.less'
 import "taro-ui/dist/style/components/flex.scss";
 import Taro from '@tarojs/taro';
 export default function ArticleCard(props) {
   const navPage = () => {
+    browHistoryModel.add(props.data)
     Taro.navigateTo({
       url: '/pages/article/index?id=' + props.data.id
     })

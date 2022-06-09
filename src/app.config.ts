@@ -8,6 +8,11 @@ export default {
 'pages/topic/index',
 'pages/login/index',
 'pages/about/index',
+'pages/likeList/index',
+'pages/collectList/index',
+'pages/browHistory/index',
+'pages/commentList/index',
+'pages/myHome/index',
 ],
   window: {
     backgroundTextStyle: 'light',

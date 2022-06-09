@@ -1,6 +1,6 @@
 import { defineModel } from 'foca';
 
-export const userModel = defineModel('counter', {
+export const userModel = defineModel('userModel', {
   initialState: { userInfo: null,token:""},
   actions: {
     login(state, userInfo: any, token: string) {

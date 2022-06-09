@@ -11,22 +11,22 @@ const Index = () => {
     {
       image: 'https://cdn.52ym.vip/rural/mine/dianzan.png',
       value: '我的点赞',
-      path:''
+      path:'/pages/likeList/index'
     },
     {
       image: 'https://cdn.52ym.vip/rural/mine/pinglun.png',
       value: '我的评论',
-      path:''
+      path:'/pages/commentList/index'
     },
     {
       image: 'https://cdn.52ym.vip/rural/mine/shoucang.png',
       value: '我的收藏',
-      path:''
+      path:'/pages/collectList/index'
     },
     {
       image: 'https://cdn.52ym.vip/rural/mine/yuedu.png',
       value: '阅读历史',
-      path:''
+      path:'/pages/browHistory/index'
     }
   ]
   useEffect(() => {

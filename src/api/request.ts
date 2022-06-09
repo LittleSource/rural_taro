@@ -19,6 +19,14 @@ const apiMember = {
   // 首页文章标题
   getIndexArticleList: (param) => api.get(ApiUrl +'cmsApi/indexArticle', param),
   // 添加点赞
-  addLike: (param) => api.get(ApiUrl +'cmsApi/addLike', param),
+  addLike: (param) => api.post(ApiUrl +'cmsApi/addLike', param),
+  // 添加收藏
+  addCollect: (param) => api.post(ApiUrl +'cmsApi/addCollect', param),
+  // 添加评论
+  addComment: (param) => api.post(ApiUrl +'cmsApi/add_comment', param),
+  // 获取我的点赞列表
+  getLikeList: (param) => api.get(ApiUrl +'cmsApi/likeList', param),
+  // 获取我的收藏列表
+  getCollectList: (param) => api.get(ApiUrl +'cmsApi/collectList', param),
 }
 export default apiMember
