@@ -5,46 +5,32 @@
 多端转换支持
 Taro 3 可以支持转换到 H5、ReactNative 以及任意小程序平台。
 
-## 启动
+## 安装依赖
 
 ```shell
-cd $workpath
 
 # 使用 yarn 安装依赖
 
 $ yarn
 
-# OR 使用 cnpm 安装依赖
+# 安装taro-cli
 
-$ cnpm install
-
-# OR 使用 npm 安装依赖
-
-$ npm install
+$ yarn global add @tarojs/cli
 ```
 
-## 编译运行
+## 启动
 
 ### 微信小程序
 
 > 其他小程序平台运行参考<https://taro-docs.jd.com/taro/docs/GETTING-STARTED>
 
 ```shell
-# yarn
+# 启动开发模式
 $ yarn dev:weapp
+# 编译打包
 $ yarn build:weapp
 
-# npm script
-$ npm run dev:weapp
-$ npm run build:weapp
-
-# 仅限全局安装
-$ taro build --type weapp --watch
-$ taro build --type weapp
-
-# npx 用户也可以使用
-$ npx taro build --type weapp --watch
-$ npx taro build --type weapp
+# 注意，编译完成后生成的代码在dist目录中，在微信小程序开发者工具中打开此目录即可
 
 # watch 同时开启压缩
 $ set NODE_ENV=production && taro build --type weapp --watch # Windows
